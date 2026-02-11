@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aimdoyle <aimdoyle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/02 23:21:07 by aimdoyle          #+#    #+#             */
-/*   Updated: 2026/02/08 19:54:56 by aimdoyle         ###   ########.fr       */
+/*   Created: 2026/02/08 19:50:51 by aimdoyle          #+#    #+#             */
+/*   Updated: 2026/02/08 20:19:29 by aimdoyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int	i;
+	unsigned int	a;
+	unsigned int	b;
 
-	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0')
+	a = 0;
+	b = 0;
+	while (dest[a])
 	{
-		if (s1[i] != s2[i])
-		{
-			return (s1[i] - s2[i]);
-		}
-		i++;
+		a++;
 	}
-	return (s1[i] - s2[i]);
+	while (b < nb && src[b])
+	{
+		dest[a] = src[b];
+		a++;
+		b++;
+	}
+	dest[a] = '\0';
+	return (dest);
 }
-/*#include <stdio.h> 
+/*#include <stdio.h>
+
 int main(void)
 {
-	char x[] = "123";
-	char y[] = "123";
-	char z[] = "124";
-	printf("%d\n", ft_strcmp(x, y));
-	printf("%d\n", ft_strcmp(x, z));
-    printf("%d\n", ft_strcmp(z, x));
+	char dest[50] = "Hello";
+	char src[] = "Worrrld";
+	printf("%s\n", ft_strncat(dest, src, 2));
 }*/
